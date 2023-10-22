@@ -1,5 +1,6 @@
-# 基于Windows Server Core作为基础镜像
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+# 基于阿里云的基础镜像
+#FROM registry.cn-hangzhou.aliyuncs.com/library/alpine:latest
+FROM adoptopenjdk:18-jdk-hotspot-windowsservercore-ltsc2019
 
 # 设置工作目录
 WORKDIR D:\app
