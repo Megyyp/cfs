@@ -1,7 +1,7 @@
 # 基于阿里云的基础镜像
-FROM registry.cn-hangzhou.aliyuncs.com/library/alpine:latest
-#FROM adoptopenjdk:18-jdk-hotspot-windowsservercore-ltsc2019
 
+#FROM adoptopenjdk:18-jdk-hotspot-windowsservercore-ltsc2019
+FROM java:18
 # 设置工作目录
 WORKDIR D:\app
 
