@@ -13,6 +13,6 @@ ENV PATH=$PATH;%JAVA_HOME%\bin
 # 复制应用程序代码到容器中
 COPY . .
 
-EXPOSE 8085
+EXPOSE 9443
 # 设置应用程序所需的环境变量（根据需要进行相应的配置）
-ENV SPRING_PROFILES_ACTIVE=default
+CMD ["java", "-jar", "target\cfs1-1.0-SNAPSHOT.jar"]
