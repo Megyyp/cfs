@@ -1,7 +1,7 @@
 # 基于阿里云的基础镜像
 
 #FROM adoptopenjdk:18-jdk-hotspot-windowsservercore-ltsc2019
-FROM java:8
+FROM openjdk:11
 # 设置工作目录
 WORKDIR D:\app
 
