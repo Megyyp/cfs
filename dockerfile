@@ -15,7 +15,6 @@ COPY . .
 
 ADD ./pom.xml pom.xml
 ADD ./src src/
-RUN mvn clean package
 
 EXPOSE 9443
 # 设置应用程序所需的环境变量（根据需要进行相应的配置）
