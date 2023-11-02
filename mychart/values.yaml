@@ -24,14 +24,14 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false
   # Automatically mount a ServiceAccount's API credentials?
   automount: true
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: ""
+  name: "my-serviceaccount"
 
 podAnnotations: {}
 podLabels: {}
@@ -55,20 +55,28 @@ securityContext: {}
 # 应用名称
    # 镜像拉取策略
 service:
-  type: ClusterIP              # Service类型（ClusterIP, NodePort, LoadBalancer）
-  port: 8080
-  targetPort: 80               # 应用端口
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 80
+      protocol: TCP
+    - name: https
+      port: 21020
+      targetPort: 443
+
+
 ingress:
   enabled: true                # 启用Ingress
   className: nginx
   annotations:                 # Ingress注解
     nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx                     # Ingress路径
-  paths:
-    - path: /
-  hosts:                       # Ingress主机列表
-    - cfs.example.com
-tls: []
+  hosts:
+    - host: cfs.example.com
+      paths:
+        - path: /
+  tls: []
 resources:                     # 资源限制与请求配置
   limits:
     cpu: 500m
